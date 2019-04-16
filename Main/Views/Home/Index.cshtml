@@ -1,3 +1,15 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Main";
+
+    IList<HttpCookie> cookies = (List<HttpCookie>)ViewBag.Cookies;
 }
+
+<ul class="list-group">
+    @foreach (HttpCookie cookie in cookies)
+    {
+        <li class="list-group-item">
+            @cookie.Name
+            <span class="badge">@cookie.Value</span>
+        </li>
+    }
+</ul>
